@@ -1,0 +1,18 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        yuan_nums = []
+        for i in nums:
+            yuan_nums.append(i)
+        nums.sort()
+        i = 0
+        j = len(nums) - 1
+        while i != j:
+            if nums[i]+ nums[j] == target:
+                i= yuan_nums.index(nums[i])
+                yuan_nums[i] = float('inf')
+                j = yuan_nums.index(nums[j])
+                return [i,j]
+            if nums[i]+ nums[j] > target:
+                j -= 1
+            if nums[i] + nums[j] < target:
+                i += 1
